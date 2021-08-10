@@ -15,7 +15,7 @@ public class Gestor {
      * @param numDados numero de dados
      * @param caras numero de caras
      */
-    public void lanzar(int numDados, int caras){
+    public void lanzar(int numDados, int caras, int tiros){
         if(caras<3 || caras>8){
             System.out.println("Elige entre 3 y 8 caras");
             return;
@@ -27,7 +27,7 @@ public class Gestor {
         
         asignarDados(numDados,caras);
         
-        for(int i = 0; i<10000000; ++i){
+        for(int i = 0; i<tiros; ++i){
             int suma = 0;
             
             for(Dado a: dados){

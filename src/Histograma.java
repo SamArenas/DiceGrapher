@@ -21,10 +21,10 @@ public class Histograma {
         for(int a: frec){
             double porcentaje = (double)a/tiros;
             String asterisco="";
-            for(int i =0; i<(a%10000000)/10000; ++i){
+            for(int i =0; i<(porcentaje*100); ++i){
                 asterisco+="*";
             }
-            System.out.println(min +"  " + String.format("%.2f",porcentaje) + "%  " + a + " " + asterisco);
+            System.out.println(min +"  " + String.format("%.2f",porcentaje) + "%  " + asterisco);
             ++min;
         }
     }
