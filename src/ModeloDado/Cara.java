@@ -1,3 +1,5 @@
+package ModeloDado;
+
 /**
  *
  * @author Samuel Arenas

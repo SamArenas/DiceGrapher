@@ -1,4 +1,4 @@
-
+package ModeloDado;
 import java.util.ArrayList;
 import java.util.Random;
 

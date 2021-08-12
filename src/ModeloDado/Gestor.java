@@ -1,3 +1,5 @@
+package ModeloDado;
+
 import java.util.ArrayList;
 /**
  *
