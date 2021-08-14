@@ -15,14 +15,15 @@ import org.jfree.chart.JFreeChart;
  */
 public class JFrameHistograma extends javax.swing.JFrame {
 
-    public void draw(JFreeChart grafica){
+    public void draw(JFreeChart grafica) {
         ChartPanel panel = new ChartPanel(grafica);
         PanelGrafica.setLayout(new BorderLayout());
         PanelGrafica.add(panel, BorderLayout.NORTH);
-        
-       pack();
-       repaint();
+
+        pack();
+        repaint();
     }
+
     public JFrameHistograma() {
         initComponents();
     }
@@ -88,10 +89,10 @@ public class JFrameHistograma extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
-        JFrameDados start  = new JFrameDados();
+        JFrameDados start = new JFrameDados();
         this.dispose();
         start.setVisible(true);
-        
+
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**

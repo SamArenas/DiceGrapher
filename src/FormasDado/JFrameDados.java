@@ -1,4 +1,5 @@
 package FormasDado;
+
 import ModeloDado.*;
 
 /**
@@ -7,17 +8,18 @@ import ModeloDado.*;
  */
 public class JFrameDados extends javax.swing.JFrame {
 
-    public void popularComboBoxes(){
+    public void popularComboBoxes() {
         CbNumsCaras.removeAllItems();
         CbNumsDados.removeAllItems();
-        
-        for(int i = 2; i<=5; i++){
+
+        for (int i = 2; i <= 5; i++) {
             CbNumsDados.addItem(Integer.toString(i));
         }
-        for(int i = 3; i<=8; i++){
+        for (int i = 3; i <= 8; i++) {
             CbNumsCaras.addItem(Integer.toString(i));
         }
     }
+
     public JFrameDados() {
         initComponents();
         popularComboBoxes();
@@ -125,10 +127,10 @@ public class JFrameDados extends javax.swing.JFrame {
         int caras = Integer.parseInt(CbNumsCaras.getSelectedItem().toString());
         int tiros = Integer.parseInt(txtNumTiros.getText());
         gestor.lanzar(dados, caras, tiros);
-        
+
         JFrameHistograma histograma = new JFrameHistograma();
         histograma.draw(gestor.mostrarResultados());
-        
+
         this.dispose();
         histograma.setVisible(true);
     }//GEN-LAST:event_BtnTirarActionPerformed
