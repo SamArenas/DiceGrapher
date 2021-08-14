@@ -1,6 +1,7 @@
 package ModeloDado;
 
 import java.util.ArrayList;
+import org.jfree.chart.JFreeChart;
 /**
  *
  * @author Samuel Arenas
@@ -19,12 +20,10 @@ public class Gestor {
      */
     public void lanzar(int numDados, int caras, int tiros){
         if(caras<3 || caras>8){
-            System.out.println("Elige entre 3 y 8 caras");
-            return;
+            //System.out.println("Elige entre 3 y 8 caras");
         }
         if(numDados<2 || numDados>5){
-            System.out.println("Elige entre 2 y 5 dados");
-            return;
+            //System.out.println("Elige entre 2 y 5 dados");
         }
         
         asignarDados(numDados,caras);
@@ -37,7 +36,10 @@ public class Gestor {
             }
             histograma.actualizar(suma);
         }
-        histograma.mostrarResultados();
+    }
+    
+    public JFreeChart mostrarResultados(){
+        return this.histograma.mostrarResultados();
     }
     
     private void asignarDados(int numDados, int caras){

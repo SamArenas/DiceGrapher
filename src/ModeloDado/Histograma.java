@@ -1,6 +1,10 @@
 package ModeloDado;
 
 import java.util.ArrayList;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
 /**
  *
  * @author Samuel Arenas
@@ -12,23 +16,32 @@ public class Histograma {
         this.frecuencias = new Frecuencia(caras, lados);
     }
     
-    public void mostrarResultados(){
+    public JFreeChart mostrarResultados(){
+        
+        DefaultCategoryDataset datos  = new DefaultCategoryDataset();
         int tiros  = frecuencias.getTiros();
         int min = frecuencias.getMin();
         
         ArrayList<Integer> frec = frecuencias.getValores();
-        System.out.println("\nTOTAL DE TIROS: " + tiros);
-        System.out.println("SUMA   %   VECES");
         
         for(int a: frec){
-            double porcentaje = (double)a/tiros;
-            String asterisco="";
-            for(int i =0; i<(porcentaje*100); ++i){
-                asterisco+="*";
-            }
-            System.out.println(min +"  " + String.format("%.2f",porcentaje) + "%  " + asterisco);
+            double porcentaje = (double)a/tiros * 100;
+            
+            datos.setValue(porcentaje, String.format("%.2f",porcentaje)+"%", String.valueOf(min));
             ++min;
         }
+        
+        JFreeChart grafica = ChartFactory.createBarChart(
+                "Simulador de Dados de " + tiros +" Tiros",
+                "Suma de Dados",
+                "Porcentaje (%)",
+                datos,
+                PlotOrientation.VERTICAL,
+                true,
+                false,
+                false
+        );
+        return grafica;
     }
 
     public void actualizar(int num){

@@ -42,6 +42,7 @@ public class JFrameDados extends javax.swing.JFrame {
         txtNumTiros = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Simulador de Dados");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Simulador de Dados");
@@ -111,10 +112,11 @@ public class JFrameDados extends javax.swing.JFrame {
                 .addComponent(txtNumTiros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(BtnTirar)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnTirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnTirarActionPerformed
@@ -123,6 +125,12 @@ public class JFrameDados extends javax.swing.JFrame {
         int caras = Integer.parseInt(CbNumsCaras.getSelectedItem().toString());
         int tiros = Integer.parseInt(txtNumTiros.getText());
         gestor.lanzar(dados, caras, tiros);
+        
+        JFrameHistograma histograma = new JFrameHistograma();
+        histograma.draw(gestor.mostrarResultados());
+        
+        this.dispose();
+        histograma.setVisible(true);
     }//GEN-LAST:event_BtnTirarActionPerformed
 
     /**
