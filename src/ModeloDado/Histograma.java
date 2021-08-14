@@ -33,7 +33,7 @@ public class Histograma {
             ++min;
         }
 
-        JFreeChart grafica = ChartFactory.createBarChart(
+        JFreeChart grafica = ChartFactory.createBarChart3D(
                 "Simulador de Dados de " + tiros + " Tiros",
                 "Suma de Dados",
                 "Porcentaje (%)",
@@ -43,6 +43,8 @@ public class Histograma {
                 false,
                 false
         );
+        grafica.setAntiAlias(true);
+        grafica.setTextAntiAlias(true);
         return grafica;
     }
 
